@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent:staff hello
+find . -maxdepth 1 -mindepth 1 -exec chown vincent:staff {} + -exec ls -ld {} + | awk '{print $3, $4}'
