@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent:staff hello olleh _hello my_dir | ls -ld hello olleh _hello my_dir | awk '{print $3, $4}'
+chown -R vincent:staff .
