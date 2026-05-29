@@ -1,2 +1,2 @@
 #!/bin/bash
-awk -v W="$WATER" -v S="$STIR" $'BEGIN{\nsplit("w a t e r",wa," ")\ni=1\nwhile(i<=5){m1[wa[i]]=i-1\ni++}\nsplit("s t i r",si," ")\ni=1\nwhile(i<=4){m2[si[i]]=i-1\ni++}\nn=0\ni=1\nwhile(i<=length(W)){n=n*5+m1[substr(W,i,1)]\ni++}\nm=0\ni=1\nwhile(i<=length(S)){m=m*4+m2[substr(S,i,1)]\ni++}\ns=n+m\nif(s==0){print substr("bestchol",1,1)\nexit}\nr=\"\"\nwhile(s>0){c=s%8\nr=substr("bestchol",c+1,1) r\ns=int(s/8)}\nprint r\n}'
+printf '%o\n' $((5#$(printf '%s' "$WATER" | tr '[:upper:]' '[:lower:]' | tr -d '\n' | tr 'water' '01234') + 4#$(printf '%s' "$STIR" | tr '[:upper:]' '[:lower:]' | tr -d '\n' | tr 'stir' '0123'))) | tr '01234567' 'bestchol'
