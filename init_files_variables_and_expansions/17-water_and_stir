@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%o\n' $((5#$(printf '%s' "$WATER" | tr 'water' '01234') + 4#$(printf '%s' "$STIR" | tr 'stir' '0123'))) | tr '01234567' 'PUT_THE_CORRECT_8_CHARS_HERE'
+printf '%o\n' $((5#$(printf '%s' "$WATER" | tr 'water' '01234') + 4#$(printf '%s' "$STIR" | tr 'stir' '0123'))) | tr '01234567' 'bEstchol'
