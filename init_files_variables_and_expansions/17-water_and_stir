@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "0123456789" | tr 'waterstir' '01234567' | xargs -I{} sh -c 'echo $(( {} ))' | tr '01234567' 'bestchol'
