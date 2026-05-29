@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 printf '%o\n' $((5#$(echo "$WATER" | tr 'WATER' '01234') + 4#$(echo "$STIR" | tr 'STIR' '0123')))
