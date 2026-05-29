@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$PATH" | tr ':' '\n' | wc -l
+echo "PATH contains $(echo "$PATH" | tr ':' '\n' | wc -l) directories"
