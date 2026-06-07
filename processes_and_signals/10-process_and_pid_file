@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Manages a PID file, displays messages indefinitely, and handles SIGTERM, SIGINT, and SIGQUIT signals
+
+PID_FILE="/var/run/myscript.pid"
+
+cleanup() {
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+trap 'echo "I hate the kill command"; cleanup' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'cleanup' SIGQUIT
+
+echo "$$" > "$PID_FILE"
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
