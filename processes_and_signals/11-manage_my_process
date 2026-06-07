@@ -2,28 +2,22 @@
 # Manages the manage_my_process script by handling start, stop, and restart arguments
 PID_FILE="/var/run/my_process.pid"
 
-start() {
-    ./manage_my_process &
-    echo "$!" > "$PID_FILE"
-    echo "manage_my_process started"
-}
-
-stop() {
-    kill "$(cat "$PID_FILE")"
-    rm -f "$PID_FILE"
-    echo "manage_my_process stopped"
-}
-
 case "$1" in
     start)
-        start
+        ./manage_my_process &
+        echo "$!" > "$PID_FILE"
+        echo "manage_my_process started"
         ;;
     stop)
-        stop
+        kill "$(cat "$PID_FILE")"
+        rm -f "$PID_FILE"
+        echo "manage_my_process stopped"
         ;;
     restart)
-        stop
-        start
+        kill "$(cat "$PID_FILE")"
+        rm -f "$PID_FILE"
+        ./manage_my_process &
+        echo "$!" > "$PID_FILE"
         echo "manage_my_process restarted"
         ;;
     *)
