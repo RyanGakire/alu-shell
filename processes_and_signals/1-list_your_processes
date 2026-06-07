@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays a list of all currently running processes in user-oriented format with hierarchy
+ps auxf
